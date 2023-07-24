@@ -1,0 +1,79 @@
+*{
+    margin: 0;
+    padding: 0;
+
+}
+header{
+    color:beige;
+    background-color: rgb(73, 14, 73);
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    font-size: 30px;
+    margin: 10px;   
+    border-radius: 25px; 
+}
+img{
+    width: 0;
+    transition: width 1s ease-in-out;
+}
+
+.container{
+    display: grid;
+    grid-template-columns: repeat(3,10vw);
+    grid-template-rows: repeat(3,10vw);
+    margin: 20px;
+}
+.box{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    border:2px solid black;
+    flex-wrap: wrap;
+    
+}
+
+.box:hover{
+    background-color: aqua; 
+}
+.gamecontainer{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    background-color: rgb(187, 183, 183);
+       
+}
+.lol1,.lol2,.lol3{
+    border-top: 0;
+}
+.lol1,.lol4,.lol7{
+    border-left: 0;
+}
+.lol7,.lol8,.lol9{
+    border-bottom: 0;
+}
+.lol3,.lol6,.lol9{
+    border-right: 0;
+}
+.foot{
+    color:beige;
+    background-color: rgb(73, 14, 73);
+    font-size: 15px;
+    margin: 10px;   
+    border-radius: 25px; 
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    
+}
+#foot1,#foot2{
+    justify-self: center;
+}
+#reset{
+    margin: 25px;
+    padding: 25px;
+    background-color: rgb(36, 153, 212);
+    border-radius: 15px;
+    font-size: 20px;
+    cursor: pointer;
+}
