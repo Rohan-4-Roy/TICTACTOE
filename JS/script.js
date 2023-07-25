@@ -25,12 +25,29 @@ function checkWin(){
         {   
             isgameover=true
             
-            document.querySelector('.info').innerText=boxtext[e[0]].innerText+" Won "
-            document.getElementsByTagName('img')[0].style.width="200px"
+            document.querySelector('.info').innerText=boxtext[e[0]].innerText+" Won " +"\n"+"Press Reset"
+            document.getElementById('win').style.width="200px"
             gameover.play()
           
         }
     })
+}
+
+function checkTie(){
+    let boxtext=document.getElementsByClassName("boxtext")
+    let count=0;
+    Array.from(boxtext).forEach(element=>{
+        if(element.innerText=="X"||element.innerText=="O")
+        {
+            count++;
+        
+        }
+
+    })
+    if(count==5){
+        document.querySelector('.info').innerText="It's a Tie";
+        isgameover=true
+    }
 }
 
 
@@ -38,13 +55,14 @@ let boxes=document.getElementsByClassName("box");
 Array.from(boxes).forEach(element=>{
     let boxtext=element.querySelector(".boxtext")
     element.addEventListener('click',()=>{
-        if(boxtext.innerText!="X"&&boxtext.innerText!="O"){
+        if(boxtext.innerText==""){
         boxtext.innerText=turn
         turn=changeTurn()
         audioturn.play()
         checkWin()
-        
         if(!isgameover){
+            checkTie();
+            if(!isgameover)
             document.getElementsByClassName("info")[0].innerText="Turn for "+turn
         }
     }
@@ -58,6 +76,6 @@ reset.addEventListener('click',()=>{
     turn='X'
     document.getElementsByClassName("info")[0].innerText="Turn for "+turn
     isgameover=false
-    document.getElementsByTagName("img")[0].style.width="0px"
+    document.getElementById("win").style.width="0px"
 
 })
